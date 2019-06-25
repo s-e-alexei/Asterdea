@@ -10,6 +10,7 @@ namespace Asterdea
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
