@@ -47,103 +47,11 @@ namespace Asterdea
             this.volume9 = volume9;
         }
 
-        public Compartment(double v1, double v2, double v3, double v4, double v5, double v6, double v7, double v8, double v9, double v10)
-        {
-        }
-
+      
         public override string ToString()
         {
             return $"{Level}, {Sounding}, { Volume1}, { Volume2}, { Volume3}, { Volume4}, { Volume5}, { Volume6}, { Volume7}, { Volume8}, {Volume9},\n";
         }
     }
-    class Calc
-    {
-
-    
-        public static List<Compartment> Get(string filename)
-        {
-
-            List<Double[]> st1 = new List<Double[]>();
-
-            try
-            {
-                foreach (string line in System.IO.File.ReadLines(@"C:\\Users\\USER\\source\\repos\\Asterdea\\Asterdea\\Data\\Compartments\\S1.csv"))
-
-                    st1.Add(line.Trim().Replace('.', ',').Split(';').Select(double.Parse).ToArray());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("NOT READ");
-                Console.WriteLine(e.Message);
-            }
-
-            List<Compartment> compartment = new List<Compartment>();
-
-            foreach (Double[] item in st1)
-            {
-                compartment.Add(new Compartment(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9]));
-                foreach (var subitem in item)
-                {
-                    Console.Write(subitem + " ");
-                }
-                Console.WriteLine();
-
-            }
-            return compartment;
-
-        }
-        public double[] GetInterpolatedValue()
-
-        {
-            List<Compartment> GetInterpolatedValue = new List<Compartment>();
-
-            double vi1 = 1; //Convert.ToDouble(Console.ReadLine());
-            int pos1 = 0;
-            for (int i = 0; i < GetInterpolatedValue.Count; i++)
-            {
-                if (GetInterpolatedValue[i].Sounding > vi1)
-                {
-                    pos1 = i - 1; //x1 = xmin
-                    break;
-                }
-
-            }
-            Console.WriteLine(pos1 + "   ");
-            Console.WriteLine();
-
-            /*
-            double[] xyz = new double[3];
-
-            xyz[0] = Math.Abs((((GetInterpolatedValue[pos1 + 1].Volume1 - GetInterpolatedValue[pos1].Volume1)) / (GetInterpolatedValue[pos1 + 1].Sounding - GetInterpolatedValue[pos1].Sounding)) * (vi1 - GetInterpolatedValue[pos1].Sounding) + GetInterpolatedValue[pos1].Volume1);
-            xyz[1] = Math.Abs((((GetInterpolatedValue[pos1 + 1].Volume2 - GetInterpolatedValue[pos1].Volume2)) / (GetInterpolatedValue[pos1 + 1].Sounding - GetInterpolatedValue[pos1].Sounding)) * (vi1 - GetInterpolatedValue[pos1].Sounding) + GetInterpolatedValue[pos1].Volume2);
-            xyz[2] = Math.Abs((((GetInterpolatedValue[pos1 + 1].Volume3 - GetInterpolatedValue[pos1].Volume3)) / (GetInterpolatedValue[pos1 + 1].Sounding - GetInterpolatedValue[pos1].Sounding)) * (vi1 - GetInterpolatedValue[pos1].Sounding) + GetInterpolatedValue[pos1].Volume3);
-                        
-            return xyz;
-            */
-
-            double xi = Math.Abs((((GetInterpolatedValue[pos1 + 1].Volume1 - GetInterpolatedValue[pos1].Volume1)) / (GetInterpolatedValue[pos1 + 1].Sounding - GetInterpolatedValue[pos1].Sounding)) * (vi1 - GetInterpolatedValue[pos1].Sounding) + GetInterpolatedValue[pos1].Volume1);
-
-            Console.WriteLine(xi);
-            Console.Read();
-            
-        }
-
-        //public class arrayVolBySound
-
-        //{
-        //    // public static void (string[] args)
-        //    // string[] dirPaths = Directory.GetDirectories("..\\..\\Data\\Compartments\\");
-        //    arrayVolBySound = new double[i];
-
-        //        for (int j = 0; j<dirPaths.Length; j++)
-        //        {
-        //            string[] filePaths = Directory.GetFiles(dirPaths[j]);
-        //  string[] dirPaths2 = Directory.GetDirectories(dirPaths[j] + "\\");
-
-        //        }
-        // }
-
-    }
-
 }
 

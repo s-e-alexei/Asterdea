@@ -10,7 +10,11 @@ namespace Asterdea
     {
         static void Main(string[] args)
         {
+            Compartments holds = new Compartments("holds");
             
+            //double[] xyz = holds.holds.GetByTitleValue("cargohold1", 32);
+
+            Console.Read();
         }
     }
 }

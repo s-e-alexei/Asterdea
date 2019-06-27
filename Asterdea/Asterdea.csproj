@@ -44,6 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compartment.cs" />
+    <Compile Include="Compartments.cs" />
+    <Compile Include="CompartmentsList.cs" />
+    <Compile Include="Hold.cs" />
+    <Compile Include="Holds.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
